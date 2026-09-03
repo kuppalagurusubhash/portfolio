@@ -1,0 +1,263 @@
+.exp {}
+
+.heading {
+  margin-top: -4px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 56px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 200px 40px 1fr;
+  gap: 0 24px;
+  padding-bottom: 56px;
+}
+
+/* Left — Date & Badges */
+.cardLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 6px;
+  gap: 8px;
+}
+
+.period {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-align: right;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+}
+
+.liveBadge {
+  font-size: 0.68rem;
+  padding: 3px 10px;
+  border-radius: 100px;
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #4ade80;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.soonPill {
+  font-size: 0.65rem;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: var(--gold-light);
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  text-align: right;
+}
+
+/* Connector Line & Dot */
+.connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 8px;
+}
+
+.dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+  transition: border-color 0.3s;
+}
+
+.activeCard .dot {
+  border-color: #22c55e;
+  background: rgba(34, 197, 94, 0.2);
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.15);
+}
+
+.soonCard .dot {
+  border-color: var(--gold);
+  background: var(--gold-dim);
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
+}
+
+.line {
+  flex: 1;
+  width: 1px;
+  background: var(--border);
+  margin-top: 10px;
+}
+
+/* Right — Card Content */
+.cardRight {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: border-color 0.3s;
+}
+
+.activeCard .cardRight {
+  border-color: rgba(34, 197, 94, 0.35);
+}
+
+.soonCard .cardRight {
+  border-color: rgba(212, 175, 55, 0.4);
+  background: linear-gradient(145deg, #131318 0%, #101115 100%);
+}
+
+.roleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.role {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.company {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.company strong {
+  color: var(--gold-light);
+}
+
+.awardBadge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid var(--border-gold);
+  padding: 8px 16px;
+  border-radius: 12px;
+}
+
+.awardIcon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.awardBadge strong {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--gold-light);
+  font-weight: 700;
+}
+
+.awardDesc {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+}
+
+.bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bullets li {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.65;
+}
+
+.bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 1.5px;
+  background: var(--gold);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-size: 0.74rem;
+  padding: 5px 14px;
+  border-radius: 100px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+/* Intimate Launch Card Footer */
+.cardFooter {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.intimateBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold);
+  color: #0b0b0d;
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 9px 20px;
+  border-radius: 100px;
+  transition: background-color 0.25s;
+  text-decoration: none;
+}
+
+.intimateBtn:hover {
+  background: var(--gold-light);
+}
+
+.intimateNote {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+@media (max-width: 840px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+  .connector {
+    display: none;
+  }
+  .cardLeft {
+    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 14px;
+    gap: 12px;
+  }
+}

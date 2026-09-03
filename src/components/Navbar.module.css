@@ -1,0 +1,126 @@
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 24px 0;
+  transition: background 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.scrolled {
+  padding: 16px 0;
+  background: rgba(12, 12, 13, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom-color: var(--border);
+}
+
+.inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--text);
+  margin-right: auto;
+}
+
+.dot { color: var(--gold-light); }
+
+.links {
+  display: flex;
+  list-style: none;
+  gap: 32px;
+}
+
+.link {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: color 0.2s;
+  letter-spacing: 0.2px;
+}
+
+.link:hover { color: var(--gold-light); }
+
+.cta {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  border: 1px solid var(--border-gold);
+  padding: 9px 22px;
+  border-radius: 100px;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.cta:hover {
+  background: var(--gold);
+  color: #0c0b08;
+  border-color: var(--gold);
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 28px;
+}
+
+.burger span {
+  display: block;
+  height: 1.5px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s, width 0.3s;
+}
+
+.burgerOpen span:first-child { transform: translateY(6.5px) rotate(45deg); }
+.burgerOpen span:last-child  { transform: translateY(-6.5px) rotate(-45deg); }
+
+.mobileMenu {
+  position: absolute;
+  top: 100%; left: 0; right: 0;
+  background: rgba(12, 12, 13, 0.97);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobileLink {
+  font-size: 1rem;
+  color: var(--text-muted);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s;
+}
+
+.mobileLink:hover { color: var(--text); }
+
+.mobileCta {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  border: 1px solid var(--border-gold);
+  padding: 12px;
+  border-radius: 100px;
+}
+
+@media (max-width: 768px) {
+  .links, .cta { display: none; }
+  .burger { display: flex; }
+}
