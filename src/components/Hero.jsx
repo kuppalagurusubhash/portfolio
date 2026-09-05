@@ -27,19 +27,6 @@ export default function Hero() {
     <section className={styles.heroSection} id="hero">
       <div className={styles.posterWrapper}>
         <div className={styles.heroCard}>
-          {/* Studio Environment Backdrop Image (Placed behind Subhash's cutout and behind BUILDER) */}
-          <div className={styles.backdropImageWrap} aria-hidden="true">
-            <Image
-              src="/subhash_clean.jpg"
-              alt="Studio Environment Backdrop"
-              fill
-              priority
-              className={styles.backdropImage}
-              sizes="(max-width: 768px) 100vw, 1260px"
-            />
-            <div className={styles.backdropOverlay} />
-          </div>
-
           {/* Subtle Ambient Window Grid Shadow */}
           <div className={styles.windowShadowOverlay} aria-hidden="true" />
 
