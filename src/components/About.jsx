@@ -1,5 +1,3 @@
-'use client';
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './About.module.css';
 
@@ -13,43 +11,29 @@ const stats = [
 const pillars = [
   {
     tag: 'BUILD',
-    title: 'Scalable Systems',
-    desc: 'High-throughput microservices, cloud CI/CD, and resilient agritech platforms at CropNow.',
+    title: 'Scalable Distributed Systems',
+    role: 'Software Team Lead @ CropNow',
+    desc: 'Architecting resilient backend flows, high-throughput microservices, and containerized deployment pipelines as a Core CSC Member (~40% velocity boost).',
   },
   {
     tag: 'SCALE',
-    title: 'Proprietary Ventures',
-    desc: 'Automated valuation workflows & transaction security for high-value pre-owned assets.',
+    title: 'Proprietary Enterprise Venture',
+    role: 'Founder & Managing Director',
+    desc: 'Engineering an automated inventory management & trust-first commerce platform for verified high-value pre-owned commercial assets (Stealth Phase).',
   },
   {
     tag: 'IMPACT',
-    title: 'Discipline & Freedom',
-    desc: 'Engineering precision aligned with market economics to drive tangible real-world results.',
+    title: 'Academic & Engineering Rigor',
+    role: 'MCA & B.Tech @ REVA University',
+    desc: 'Relentlessly balancing full-time software leadership with continuous academic mastery — MCA (7.82 CGPA) following Bachelor of Technology in CSE (8.23 CGPA).',
   },
 ];
 
 export default function About() {
-  const [viewMode, setViewMode] = useState('editorial'); // 'editorial' | 'portrait'
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = 'hidden';
-      const handleKeyDown = (e) => {
-        if (e.key === 'Escape') setIsModalOpen(false);
-      };
-      window.addEventListener('keydown', handleKeyDown);
-      return () => {
-        document.body.style.overflow = '';
-        window.removeEventListener('keydown', handleKeyDown);
-      };
-    }
-  }, [isModalOpen]);
-
   return (
     <section className={`section ${styles.about}`} id="about">
       <div className="container">
-        {/* Credentials Pill Strip — Revealed on Scroll */}
+        {/* Credentials Pill Strip */}
         <div className={styles.topCredentialsWrap} data-reveal="up">
           <div className={styles.credentialsPill}>
             <span className={styles.verifiedDot} />
@@ -63,233 +47,205 @@ export default function About() {
           </div>
         </div>
 
-        <div className={styles.grid}>
-          {/* Left — Executive Editorial Poster Frame */}
-          <div className={styles.imageCol} data-reveal="left">
-            <div className={styles.posterContainer}>
-              {/* Outer Ambient Glow */}
-              <div className={styles.posterBackdropGlow} aria-hidden="true" />
+        {/* ── Seamless Editorial Monograph Spread (No Boxed Card) ── */}
+        <div className={styles.editorialSpread} data-reveal="up">
+          {/* Top Brand Bar */}
+          <div className={styles.spreadTopBar}>
+            <div className={styles.brandGroup}>
+              <span className={styles.brandLogo}>KGS.</span>
+              <span className={styles.brandSubtitle}>
+                ENGINEER &nbsp;/&nbsp; BUILDER &nbsp;/&nbsp; CREATIVE THINKER
+              </span>
+            </div>
+            <a href="#contact" className={styles.turnIdeasBtn}>
+              <span>TURN IDEAS INTO IMPACT</span>
+              <span className={styles.dashAccent}>—</span>
+            </a>
+          </div>
 
-              {/* View Mode Switcher Header */}
-              <div className={styles.viewSwitcher}>
-                <button
-                  className={`${styles.switchBtn} ${viewMode === 'editorial' ? styles.switchBtnActive : ''}`}
-                  onClick={() => setViewMode('editorial')}
-                  type="button"
-                >
-                  <span>✦ Editorial Poster</span>
-                </button>
-                <button
-                  className={`${styles.switchBtn} ${viewMode === 'portrait' ? styles.switchBtnActive : ''}`}
-                  onClick={() => setViewMode('portrait')}
-                  type="button"
-                >
-                  <span>👔 Studio Portrait</span>
-                </button>
+          {/* Main 3-Column Editorial Panorama */}
+          <div className={styles.spreadMainGrid}>
+            {/* Left Column — The BUILD Typography & Mantras */}
+            <div className={styles.leftCol} data-reveal="left">
+              <span className={styles.roleLine}>— FULL STACK ENGINEER &amp; TEAM LEAD</span>
+
+              {/* Iconic BUILD Typography: B & U are hollow outline, I, L, D are radiant gold */}
+              <div className={styles.buildWord} aria-label="BUILD">
+                <span className={styles.outlineChar}>B</span>
+                <span className={styles.outlineChar}>U</span>
+                <span className={styles.goldChar}>I</span>
+                <span className={styles.goldChar}>L</span>
+                <span className={styles.goldChar}>D</span>
               </div>
 
-              {/* Editorial Frame Card */}
-              <div
-                className={styles.imageFrame}
-                onClick={() => setIsModalOpen(true)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => e.key === 'Enter' && setIsModalOpen(true)}
-                title="Click to view full resolution poster"
-              >
+              <div className={styles.techBusinessMotto}>
+                TECHNOLOGY &nbsp;•&nbsp; BUSINESS &nbsp;•&nbsp; A BETTER TOMORROW
+              </div>
+
+              {/* 3 Core Mantras with Vertical Golden Bar */}
+              <div className={styles.mantraContainer}>
+                <div className={styles.mantraBar} />
+                <div className={styles.mantraList}>
+                  <p className={styles.mantraItem}>Engineering solutions.</p>
+                  <p className={styles.mantraItem}>Scaling ideas.</p>
+                  <p className={styles.mantraItem}>Creating meaningful impact.</p>
+                </div>
+              </div>
+
+              {/* Location Badge */}
+              <div className={styles.locationWrap}>
+                <span className={styles.locationPill}>
+                  <span>📍</span> BANGALORE, INDIA
+                </span>
+                <span className={styles.liveAvailable}>
+                  <span className={styles.pulseDot} /> Available for Leadership
+                </span>
+              </div>
+            </div>
+
+            {/* Center Column — Subhash Standing in Sharp Black Suit */}
+            <div className={styles.centerCol} data-reveal="up">
+              <div className={styles.portraitAura} aria-hidden="true" />
+              <div className={styles.portraitWrapper}>
                 <Image
-                  src={viewMode === 'editorial' ? '/subhash-editorial.jpeg' : '/subhash-suit.jpeg'}
-                  alt="Kuppala Guru Subhash — Executive Editorial"
+                  src="/subhash-suit-pristine.png"
+                  alt="Kuppala Guru Subhash"
                   fill
                   priority
-                  className={styles.posterImage}
-                  sizes="(max-width: 768px) 100vw, 48vw"
+                  className={styles.portraitImage}
+                  sizes="(max-width: 768px) 90vw, 480px"
                 />
+              </div>
+            </div>
 
-                {/* Subtle Glass & Gold Corner Accents */}
-                <div className={styles.frameCornerTopLeft} />
-                <div className={styles.frameCornerTopRight} />
-                <div className={styles.frameCornerBottomLeft} />
-                <div className={styles.frameCornerBottomRight} />
+            {/* Right Column — Architectural Editorial Headline & Motto */}
+            <div className={styles.rightCol} data-reveal="right">
+              <div className={styles.architecturalHeadline}>
+                <span>Engineering</span>
+                <span>Precision</span>
+                <span>Meets</span>
+                <span>Entrepreneur</span>
+                <span className={styles.goldVision}>Vision</span>
+              </div>
 
-                {/* Badges on Frame */}
-                <div className={styles.frameBadge}>
-                  <span className={styles.badgePulse} /> Team Lead · CropNow
-                </div>
-
-                <div className={styles.locationBadge}>
-                  <span>📍</span> Bangalore, India
-                </div>
-
-                {/* Hover Expand Prompt */}
-                <div className={styles.imageOverlay}>
-                  <span className={styles.expandPrompt}>
-                    <span>🔍</span> Tap to Expand Full Poster
-                  </span>
+              {/* Vertical Architectural Ribbon */}
+              <div className={styles.verticalRibbonWrap}>
+                <span className={styles.ribbonDivider}>|</span>
+                <div className={styles.verticalWords}>
+                  <span>PRODUCTS</span>
+                  <span>SYSTEMS</span>
+                  <span>PEOPLE</span>
+                  <span>IMPACT</span>
                 </div>
               </div>
 
-              {/* Direct Connect Buttons */}
-              <div className={styles.socialStrip} data-reveal="up">
-                <a
-                  href="https://linkedin.com/in/kuppalagurusubhash"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.socialBtn}
-                >
-                  <span className={styles.linkedinIcon}>in</span>
-                  <span>LinkedIn</span>
-                </a>
-
-                <a
-                  href="https://instagram.com/shubhash"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.socialBtn}
-                >
-                  <span>📷</span>
-                  <span>Instagram</span>
-                </a>
-
-                <a
-                  href="https://wa.me/917732010001"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.socialBtn}
-                >
-                  <span>💬</span>
-                  <span>WhatsApp</span>
-                </a>
+              {/* Bottom Right Motto */}
+              <div className={styles.bottomMotto}>
+                <span>DISCIPLINE</span>
+                <span>DRIVES</span>
+                <span>FREEDOM</span>
+                <span className={styles.mottoDash}>—</span>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Right — Editorial Philosophy & Monograph */}
-          <div className={styles.textCol}>
-            <div className={styles.statusBadge} data-reveal="right">
-              <span className={styles.livePulse} /> Available for High-Impact Leadership · Bangalore, India
-            </div>
+        {/* ── Executive Information & Career Narrative Section ── */}
+        <div className={styles.narrativeSection} data-reveal="up">
+          <div className={styles.narrativeHeader}>
+            <p className="section-label">Detailed Profile &amp; Background</p>
+            <h3 className={styles.narrativeTitle}>Leadership &amp; Technical Foundation</h3>
+            <p className={styles.narrativeIntro}>
+              Bridging high-scale distributed backend engineering with decisive entrepreneurial strategy.
+            </p>
+          </div>
 
-            <p className="section-label" data-reveal="left">Executive Editorial &amp; Monograph</p>
-            <h2 className={`section-heading ${styles.heading}`}>
-              <span className="reveal-word-left" data-reveal="left">Engineering Precision Meets </span>
-              <span className="reveal-word-right" data-reveal="right"><span>Entrepreneurial Vision</span></span>
-            </h2>
-
-            {/* Architectural Pillars Strip (from pro.jpeg) */}
-            <div className={styles.pillarsGrid} data-reveal="up">
-              {pillars.map((p) => (
-                <div key={p.tag} className={styles.pillarCard}>
-                  <div className={styles.pillarTagRow}>
-                    <span className={styles.pillarTag}>{p.tag}</span>
-                    <span className={styles.pillarDot}>•</span>
-                  </div>
-                  <h4 className={styles.pillarTitle}>{p.title}</h4>
-                  <p className={styles.pillarDesc}>{p.desc}</p>
+          {/* 3 Pillar Information Cards */}
+          <div className={styles.pillarsGrid}>
+            {pillars.map((p, idx) => (
+              <div key={p.tag} className={styles.pillarCard} data-reveal="up" data-delay={idx * 100}>
+                <div className={styles.pillarHeader}>
+                  <span className={styles.pillarTag}>{p.tag}</span>
+                  <span className={styles.pillarRole}>{p.role}</span>
                 </div>
-              ))}
-            </div>
+                <h4 className={styles.pillarTitle}>{p.title}</h4>
+                <p className={styles.pillarDesc}>{p.desc}</p>
+              </div>
+            ))}
+          </div>
 
-            <p className={styles.body} data-reveal="right">
-              I&apos;m a Full Stack Engineer and Software Team Lead with a passion for designing high-scale distributed systems,
-              streamlining cloud pipelines, and building resilient digital platforms. At&nbsp;<strong>CropNow</strong>,
-              I spearhead engineering delivery, architectural reviews, and sprint execution as a core CSC member.
+          {/* Key Impact Stats Bar */}
+          <div className={styles.statsGrid} data-reveal="up" data-delay="150">
+            {stats.map((s) => (
+              <div key={s.label} className={styles.statItem}>
+                <span className={styles.statVal}>{s.value}</span>
+                <span className={styles.statLabel}>{s.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Narrative Paragraphs */}
+          <div className={styles.narrativeBody} data-reveal="up" data-delay="200">
+            <p>
+              I am a <strong>Software Team Lead</strong> and <strong>Full Stack Engineer</strong> with proven experience
+              architecting high-throughput microservices, streamlining cloud CI/CD pipelines, and enforcing agile governance.
+              At <strong>CropNow</strong>, I spearhead core backend velocity, containerized deployment stability, and deadline execution as a Core CSC member.
             </p>
-
-            <p className={styles.body} data-reveal="right" data-delay="100">
-              Parallel to my software leadership, I am architecting my own <strong>pre-owned enterprise venture</strong>,
-              applying engineering rigor and automated workflows to solve real-world marketplace challenges.
-              The comprehensive venture release and platform architecture will be <strong>officially intimated to partners soon</strong>.
+            <p>
+              Concurrently, I am the founder of a <strong>stealth-phase pre-owned commercial enterprise venture</strong>,
+              applying automated valuation workflows and transaction safety protocols to modernize secondary asset markets.
             </p>
-
-            <p className={styles.body} data-reveal="right" data-delay="150">
-              I am completing my <strong>MCA at REVA University, Bangalore</strong> (7.82 CGPA) following a Bachelor of Technology
-              in Computer Science &amp; Engineering (8.23 CGPA) — relentlessly balancing full-time software leadership with continuous academic mastery.
+            <p>
+              I am completing my <strong>Master of Computer Applications (MCA) at REVA University, Bangalore</strong> (7.82 CGPA)
+              following a Bachelor of Technology in Computer Science &amp; Engineering (8.23 CGPA) — consistently demonstrating the discipline to lead production engineering teams while excelling academically.
             </p>
+          </div>
 
-            <blockquote className={styles.quote} data-reveal="left" data-delay="200">
-              &ldquo;Discipline drives freedom. Between scalable system architecture and entrepreneurial strategy lies the space where I build — turning ideas into measurable impact.&rdquo;
-            </blockquote>
+          {/* Technical Governance Tags */}
+          <div className={styles.badgeRow} data-reveal="up" data-delay="250">
+            <span className={styles.badge}>MERN Stack</span>
+            <span className={styles.badge}>Java &amp; Python</span>
+            <span className={styles.badge}>Docker · AWS · Azure</span>
+            <span className={styles.badge}>CI/CD Pipelines</span>
+            <span className={styles.badge}>Microservices Architecture</span>
+            <span className={styles.badge}>Pre-Owned Commerce (Soon)</span>
+          </div>
 
-            {/* Stats Strip */}
-            <div className={styles.statsGrid} data-reveal="up" data-delay="220">
-              {stats.map((s) => (
-                <div key={s.label} className={styles.statItem}>
-                  <span className={styles.statVal}>{s.value}</span>
-                  <span className={styles.statLabel}>{s.label}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className={styles.badgeRow} data-reveal="up" data-delay="250">
-              <span className={styles.badge}>MERN Stack</span>
-              <span className={styles.badge}>Java &amp; Python</span>
-              <span className={styles.badge}>Docker · AWS · Azure</span>
-              <span className={styles.badge}>CI/CD Pipelines</span>
-              <span className={styles.badge}>Pre-Owned Commerce (Soon)</span>
-            </div>
+          {/* Direct Social & Connect Links */}
+          <div className={styles.socialStrip} data-reveal="up" data-delay="300">
+            <a
+              href="https://linkedin.com/in/kuppalagurusubhash"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.socialBtn}
+            >
+              <span className={styles.linkedinIcon}>in</span>
+              <span>LinkedIn Profile</span>
+            </a>
+            <a
+              href="https://wa.me/917732010001"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.socialBtn}
+            >
+              <span>💬</span>
+              <span>WhatsApp Direct</span>
+            </a>
+            <a
+              href="https://instagram.com/shubhash"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.socialBtn}
+            >
+              <span>📷</span>
+              <span>Instagram</span>
+            </a>
+            <a href="#contact" className={styles.contactBtn}>
+              <span>Get in Touch →</span>
+            </a>
           </div>
         </div>
       </div>
-
-      {/* Lightbox Modal for Poster */}
-      {isModalOpen && (
-        <div
-          className={styles.modalBackdrop}
-          onClick={() => setIsModalOpen(false)}
-          role="dialog"
-          aria-modal="true"
-          aria-label="Executive Editorial Poster"
-        >
-          <div
-            className={styles.modalContent}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              className={styles.closeBtn}
-              onClick={() => setIsModalOpen(false)}
-              aria-label="Close modal"
-            >
-              ✕
-            </button>
-
-            <div className={styles.modalImageWrap}>
-              <Image
-                src={viewMode === 'editorial' ? '/subhash-editorial.jpeg' : '/subhash-suit.jpeg'}
-                alt="Kuppala Guru Subhash — Full Poster"
-                fill
-                priority
-                className={styles.modalImage}
-                sizes="95vw"
-              />
-            </div>
-
-            <div className={styles.modalFooter}>
-              <div className={styles.modalFooterText}>
-                <span className={styles.modalSub}>KGS EXECUTIVE EDITORIAL</span>
-                <h3 className={styles.modalHeading}>Engineering Precision Meets Entrepreneurial Vision</h3>
-                <p className={styles.modalMotto}>“Discipline Drives Freedom · Turn Ideas into Impact”</p>
-              </div>
-              <div className={styles.modalSwitchWrap}>
-                <button
-                  className={`${styles.switchBtn} ${viewMode === 'editorial' ? styles.switchBtnActive : ''}`}
-                  onClick={() => setViewMode('editorial')}
-                  type="button"
-                >
-                  Editorial Poster
-                </button>
-                <button
-                  className={`${styles.switchBtn} ${viewMode === 'portrait' ? styles.switchBtnActive : ''}`}
-                  onClick={() => setViewMode('portrait')}
-                  type="button"
-                >
-                  Studio Portrait
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

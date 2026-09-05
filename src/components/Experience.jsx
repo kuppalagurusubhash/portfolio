@@ -113,6 +113,7 @@ export default function Experience() {
           A track record of high-stakes engineering leadership at CropNow, paired with proprietary entrepreneurial ventures.
         </p>
 
+        {/* ── 1. The Clean Executive Career Timeline ── */}
         <div className={styles.timeline}>
           {experiences.map((ex, i) => (
             <div
@@ -140,13 +141,14 @@ export default function Experience() {
                     </p>
                   </div>
                   {ex.award && (
-                    <div className={styles.awardBadge}>
+                    <a href="#cropnow-awards" className={styles.awardBadge} title="Click to view ceremony photos below">
                       <span className={styles.awardIcon}>🏆</span>
-                      <div>
+                      <div className={styles.awardBadgeText}>
                         <strong>{ex.award}</strong>
                         <span className={styles.awardDesc}>{ex.awardSub}</span>
                       </div>
-                    </div>
+                      <span className={styles.awardJumpArrow}>📸 View Photos ↓</span>
+                    </a>
                   )}
                 </div>
 
@@ -162,66 +164,6 @@ export default function Experience() {
                   ))}
                 </div>
 
-                {/* CropNow Verified Awards & Ceremony Gallery */}
-                {ex.company === 'CropNow' && (
-                  <div className={styles.awardsShowcase} id="cropnow-awards">
-                    <div className={styles.awardsHeader}>
-                      <div className={styles.awardsHeaderLeft}>
-                        <div className={styles.trophyGlow}>🏆</div>
-                        <div>
-                          <h4 className={styles.awardsTitle}>Official Honors &amp; Award Ceremony Photos</h4>
-                          <p className={styles.awardsSubtitle}>Verified recognition conferred by CropNow leadership</p>
-                        </div>
-                      </div>
-                      <span className={styles.verifiedTag}>
-                        <span className={styles.verifiedCheck}>✓</span> CropNow Verified
-                      </span>
-                    </div>
-
-                    <div className={styles.awardsGrid}>
-                      {cropNowAwards.map((award) => (
-                        <div
-                          key={award.id}
-                          className={styles.awardCard}
-                          onClick={() => setActiveAward(award)}
-                          role="button"
-                          tabIndex={0}
-                          onKeyDown={(e) => e.key === 'Enter' && setActiveAward(award)}
-                        >
-                          <div className={styles.awardImageFrame}>
-                            <Image
-                              src={award.image}
-                              alt={award.title}
-                              fill
-                              className={styles.awardImg}
-                              sizes="(max-width: 768px) 100vw, 420px"
-                            />
-                            <div className={styles.imageOverlay}>
-                              <span className={styles.zoomPrompt}>
-                                <span>🔍</span> Tap to Expand Photo
-                              </span>
-                            </div>
-                            <span className={styles.badgePill}>{award.badge}</span>
-                          </div>
-
-                          <div className={styles.awardInfo}>
-                            <div className={styles.issuerRow}>
-                              <span className={styles.issuerName}>{award.issuer}</span>
-                              <span className={styles.awardYear}>{award.year}</span>
-                            </div>
-                            <h5 className={styles.cardTitle}>{award.title}</h5>
-                            <p className={styles.cardDesc}>{award.desc}</p>
-                            <div className={styles.citationRow}>
-                              <span className={styles.citationText}>{award.citation}</span>
-                              <span className={styles.expandLink}>View full photo ↗</span>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
                 {ex.ctaText && (
                   <div className={styles.cardFooter}>
                     <a href={ex.ctaLink} className={styles.intimateBtn}>
@@ -234,6 +176,67 @@ export default function Experience() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* ── 2. Dedicated Honors & Leadership Gallery (Separate from Timeline Cards) ── */}
+        <div className={styles.accoladesSection} id="cropnow-awards" data-reveal="up">
+          <div className={styles.accoladesHeader}>
+            <div className={styles.accoladesHeaderLeft}>
+              <span className={styles.trophyIconLarge}>🏆</span>
+              <div>
+                <span className={styles.accoladesEyebrow}>VERIFIED LEADERSHIP ACCOLADES</span>
+                <h3 className={styles.accoladesTitle}>Official Honors &amp; Award Ceremony Photos</h3>
+                <p className={styles.accoladesSub}>
+                  Verified recognition and leadership moments conferred at CropNow
+                </p>
+              </div>
+            </div>
+            <div className={styles.verifiedCropBadge}>
+              <span className={styles.badgePulse} /> CropNow Verified Accolade
+            </div>
+          </div>
+
+          <div className={styles.accoladesGrid}>
+            {cropNowAwards.map((award) => (
+              <div
+                key={award.id}
+                className={styles.accoladeCard}
+                onClick={() => setActiveAward(award)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => e.key === 'Enter' && setActiveAward(award)}
+              >
+                <div className={styles.accoladeImageFrame}>
+                  <Image
+                    src={award.image}
+                    alt={award.title}
+                    fill
+                    className={styles.accoladeImg}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 380px"
+                  />
+                  <div className={styles.accoladeOverlay}>
+                    <span className={styles.zoomPrompt}>
+                      <span>🔍</span> Expand Ceremony Photo
+                    </span>
+                  </div>
+                  <span className={styles.accoladePill}>{award.badge}</span>
+                </div>
+
+                <div className={styles.accoladeInfo}>
+                  <div className={styles.accoladeMetaRow}>
+                    <span className={styles.accoladeIssuer}>{award.issuer}</span>
+                    <span className={styles.accoladeYear}>{award.year}</span>
+                  </div>
+                  <h4 className={styles.accoladeCardTitle}>{award.title}</h4>
+                  <blockquote className={styles.accoladeCitation}>{award.citation}</blockquote>
+                  <p className={styles.accoladeDesc}>{award.desc}</p>
+                  <div className={styles.accoladeFooter}>
+                    <span className={styles.inspectPrompt}>Tap to view full resolution ↗</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -288,7 +291,7 @@ export default function Experience() {
                 fill
                 priority
                 className={styles.modalImage}
-                sizes="90vw"
+                sizes="95vw"
               />
             </div>
 
