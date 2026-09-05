@@ -207,12 +207,7 @@
 }
 
 .portraitAura {
-  position: absolute;
-  inset: -20% -20% -5% -20%;
-  background: radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.32) 0%, rgba(212, 175, 55, 0.08) 48%, transparent 72%);
-  filter: blur(50px);
-  pointer-events: none;
-  z-index: 0;
+  display: none;
 }
 
 .portraitWrapper {
