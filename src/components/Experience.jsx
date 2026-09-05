@@ -40,17 +40,22 @@ export default function Experience() {
   return (
     <section className={`section ${styles.exp}`} id="experience">
       <div className="container">
-        <p className="section-label">Leadership &amp; Career</p>
+        <p className="section-label" data-reveal="left">Leadership &amp; Career</p>
         <h2 className={`section-heading ${styles.heading}`}>
-          Professional <span>Experience</span>
+          <span className="reveal-word-left" data-reveal="left">Professional </span>
+          <span className="reveal-word-right" data-reveal="right"><span>Experience</span></span>
         </h2>
-        <p className="section-sub">
+        <p className="section-sub" data-reveal="up">
           A track record of high-stakes engineering leadership at CropNow, paired with proprietary entrepreneurial ventures.
         </p>
 
         <div className={styles.timeline}>
           {experiences.map((ex, i) => (
-            <div key={i} className={`${styles.card} ${ex.active ? styles.activeCard : ''} ${ex.soonBadge ? styles.soonCard : ''}`}>
+            <div
+              key={i}
+              className={`${styles.card} ${ex.active ? styles.activeCard : ''} ${ex.soonBadge ? styles.soonCard : ''}`}
+              data-reveal={i % 2 === 0 ? 'left' : 'right'}
+            >
               <div className={styles.cardLeft}>
                 <span className={styles.period}>{ex.period}</span>
                 {ex.active && <span className={styles.liveBadge}>Active Role</span>}

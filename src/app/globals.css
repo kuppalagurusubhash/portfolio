@@ -152,3 +152,152 @@ button {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+/* =============================================
+   MOBILE RESPONSIVE ENHANCEMENTS
+   ============================================= */
+@media (max-width: 768px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .container {
+    padding: 0 18px;
+  }
+
+  .section-label {
+    margin-bottom: 16px;
+    font-size: 0.68rem;
+    letter-spacing: 2.2px;
+  }
+
+  .section-heading {
+    font-size: clamp(1.85rem, 6.8vw, 2.75rem);
+    line-height: 1.16;
+    letter-spacing: -0.02em;
+    word-break: break-word;
+  }
+
+  .section-sub {
+    font-size: 0.94rem;
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+}
+
+/* =============================================
+   SCROLL-DRIVEN REVEAL ANIMATIONS
+   "Words and cards sliding in dynamically from sides"
+   ============================================= */
+
+[data-reveal] {
+  will-change: transform, opacity, filter;
+  transition: 
+    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.85s ease;
+}
+
+/* 1. Slide in from Left */
+[data-reveal="left"] {
+  opacity: 0;
+  transform: translateX(-55px);
+  filter: blur(4px);
+}
+
+[data-reveal="left"].isRevealed {
+  opacity: 1;
+  transform: translateX(0);
+  filter: blur(0);
+}
+
+/* 2. Slide in from Right */
+[data-reveal="right"] {
+  opacity: 0;
+  transform: translateX(55px);
+  filter: blur(4px);
+}
+
+[data-reveal="right"].isRevealed {
+  opacity: 1;
+  transform: translateX(0);
+  filter: blur(0);
+}
+
+/* 3. Slide in Upwards */
+[data-reveal="up"] {
+  opacity: 0;
+  transform: translateY(40px);
+  filter: blur(3px);
+}
+
+[data-reveal="up"].isRevealed {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* 4. Subtle Scale Reveal */
+[data-reveal="scale"] {
+  opacity: 0;
+  transform: scale(0.93);
+  filter: blur(4px);
+}
+
+[data-reveal="scale"].isRevealed {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+/* Stagger Delays */
+[data-delay="50"]  { transition-delay: 50ms; }
+[data-delay="100"] { transition-delay: 100ms; }
+[data-delay="150"] { transition-delay: 150ms; }
+[data-delay="200"] { transition-delay: 200ms; }
+[data-delay="250"] { transition-delay: 250ms; }
+[data-delay="300"] { transition-delay: 300ms; }
+[data-delay="350"] { transition-delay: 350ms; }
+[data-delay="400"] { transition-delay: 400ms; }
+[data-delay="500"] { transition-delay: 500ms; }
+
+/* Inline word sliding elements */
+.reveal-word-left {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(-40px);
+  filter: blur(4px);
+  will-change: transform, opacity, filter;
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.85s ease;
+}
+
+.reveal-word-left.isRevealed {
+  opacity: 1;
+  transform: translateX(0);
+  filter: blur(0);
+}
+
+.reveal-word-right {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(40px);
+  filter: blur(4px);
+  will-change: transform, opacity, filter;
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.85s ease;
+}
+
+.reveal-word-right.isRevealed {
+  opacity: 1;
+  transform: translateX(0);
+  filter: blur(0);
+}

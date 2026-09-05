@@ -122,5 +122,60 @@
 }
 
 @media (max-width: 768px) {
-  .grid { grid-template-columns: 1fr; }
+  .heading {
+    margin-bottom: 36px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    margin-bottom: 40px;
+    gap: 12px;
+  }
+
+  .card {
+    padding: 22px 18px;
+    border-radius: 16px;
+  }
+
+  .degree {
+    font-size: 1.08rem;
+  }
+
+  .school {
+    font-size: 0.84rem;
+  }
+
+  .honorsSection {
+    padding-top: 36px;
+  }
+
+  .honorsTitle {
+    font-size: 1.02rem;
+    margin-bottom: 20px;
+  }
+
+  .honorItem {
+    padding: 16px 16px;
+    gap: 14px;
+    border-radius: 12px;
+  }
+
+  .honorTitle {
+    font-size: 0.9rem;
+  }
+
+  .honorFrom {
+    font-size: 0.76rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 18px 16px;
+  }
+
+  .honorItem {
+    padding: 14px 14px;
+    gap: 12px;
+  }
 }

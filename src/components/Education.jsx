@@ -54,14 +54,20 @@ export default function Education() {
   return (
     <section className={`section ${styles.edu}`} id="education">
       <div className="container">
-        <p className="section-label">Education</p>
+        <p className="section-label" data-reveal="left">Education &amp; Background</p>
         <h2 className={`section-heading ${styles.heading}`}>
-          Academic <span>Foundation</span>
+          <span className="reveal-word-left" data-reveal="left">Academic </span>
+          <span className="reveal-word-right" data-reveal="right"><span>Foundation</span></span>
         </h2>
 
         <div className={styles.grid}>
           {education.map((e, i) => (
-            <div key={i} className={`${styles.card} ${e.current ? styles.current : ''}`}>
+            <div
+              key={i}
+              className={`${styles.card} ${e.current ? styles.current : ''}`}
+              data-reveal={i % 2 === 0 ? 'left' : 'right'}
+              data-delay={i * 80}
+            >
               <div className={styles.topRow}>
                 <span className={styles.year}>{e.year}</span>
                 <span className={styles.cgpa}>CGPA {e.cgpa}</span>
@@ -76,11 +82,11 @@ export default function Education() {
         </div>
 
         {/* Honors */}
-        <div className={styles.honorsSection}>
+        <div className={styles.honorsSection} data-reveal="up">
           <h3 className={styles.honorsTitle}>Honors &amp; Certifications</h3>
           <div className={styles.honorsList}>
             {honors.map((h, i) => (
-              <div key={i} className={styles.honorItem}>
+              <div key={i} className={styles.honorItem} data-reveal="up" data-delay={i * 100}>
                 <span className={styles.honorIcon}>{h.icon}</span>
                 <div>
                   <p className={styles.honorTitle}>{h.title}</p>

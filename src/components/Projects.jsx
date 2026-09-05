@@ -39,14 +39,20 @@ export default function Projects() {
   return (
     <section className={`section ${styles.projects}`} id="projects">
       <div className="container">
-        <p className="section-label">Projects</p>
+        <p className="section-label" data-reveal="left">Projects &amp; Flagship Systems</p>
         <h2 className={`section-heading ${styles.heading}`}>
-          Featured <span>Builds</span>
+          <span className="reveal-word-left" data-reveal="left">Featured </span>
+          <span className="reveal-word-right" data-reveal="right"><span>Builds</span></span>
         </h2>
 
         <div className={styles.grid}>
-          {projects.map((p) => (
-            <div key={p.num} className={styles.card}>
+          {projects.map((p, i) => (
+            <div
+              key={p.num}
+              className={styles.card}
+              data-reveal={i % 2 === 0 ? 'left' : 'right'}
+              data-delay={i * 80}
+            >
               <span className={styles.num}>{p.num}</span>
 
               <div className={styles.iconCircle}>{p.icon}</div>

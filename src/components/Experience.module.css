@@ -247,17 +247,78 @@
 }
 
 @media (max-width: 840px) {
+  .timeline {
+    margin-top: 36px;
+  }
+
   .card {
     grid-template-columns: 1fr;
+    padding-bottom: 36px;
   }
+
   .connector {
     display: none;
   }
+
   .cardLeft {
     align-items: flex-start;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 14px;
-    gap: 12px;
+    margin-bottom: 12px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .cardRight {
+    padding: 24px 20px;
+    border-radius: 18px;
+    gap: 16px;
+  }
+
+  .role {
+    font-size: 1.22rem;
+  }
+
+  .company {
+    font-size: 0.85rem;
+  }
+
+  .awardBadge {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 10px;
+  }
+
+  .bullets li {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    padding-left: 16px;
+  }
+
+  .cardFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .intimateBtn {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardRight {
+    padding: 20px 16px;
+  }
+
+  .role {
+    font-size: 1.15rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    padding: 4px 10px;
   }
 }

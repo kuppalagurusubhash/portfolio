@@ -8,10 +8,14 @@ import Projects from '@/components/Projects';
 import Education from '@/components/Education';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import ScrollAnimations from '@/components/ScrollAnimations';
 
 export default function Home() {
   return (
     <main style={{ position: 'relative', zIndex: 1 }}>
+      {/* Scroll-Driven Animation Engine */}
+      <ScrollAnimations />
+
       {/* Full-Page 3D Background Universe (Particles, Models & Scroll Effects) */}
       <ThreeScene />
 

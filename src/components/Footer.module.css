@@ -42,3 +42,26 @@
   color: var(--gold-light);
   border-color: var(--border-gold);
 }
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 28px 0;
+  }
+
+  .inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+    padding: 0 18px;
+  }
+
+  .copy {
+    font-size: 0.74rem;
+    line-height: 1.5;
+  }
+
+  .top {
+    font-size: 0.74rem;
+    padding: 6px 16px;
+  }
+}

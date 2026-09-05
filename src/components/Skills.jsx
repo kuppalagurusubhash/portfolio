@@ -35,17 +35,23 @@ export default function Skills() {
   return (
     <section className={`section ${styles.skillsSection}`} id="skills">
       <div className="container">
-        <p className="section-label">Technical Stack &amp; Capabilities</p>
+        <p className="section-label" data-reveal="left">Technical Stack &amp; Capabilities</p>
         <h2 className={`section-heading ${styles.heading}`}>
-          Engineering <span>Arsenal</span>
+          <span className="reveal-word-left" data-reveal="left">Engineering </span>
+          <span className="reveal-word-right" data-reveal="right"><span>Arsenal</span></span>
         </h2>
-        <p className="section-sub">
+        <p className="section-sub" data-reveal="up">
           A full-spectrum technical toolkit spanning scalable distributed services, cloud infrastructure, and modern frontend systems.
         </p>
 
         <div className={styles.grid}>
           {skillCategories.map((cat, i) => (
-            <div key={i} className={styles.card}>
+            <div
+              key={i}
+              className={styles.card}
+              data-reveal={i % 2 === 0 ? 'left' : 'right'}
+              data-delay={i * 80}
+            >
               <div className={styles.cardHeader}>
                 <span className={styles.cardIcon}>{cat.icon}</span>
                 <h3 className={styles.cardTitle}>{cat.title}</h3>
@@ -61,7 +67,7 @@ export default function Skills() {
         </div>
 
         {/* Spoken Languages Strip */}
-        <div className={styles.langBlock}>
+        <div className={styles.langBlock} data-reveal="up">
           <div className={styles.langHeader}>
             <span className={styles.langIcon}>🌐</span>
             <div>

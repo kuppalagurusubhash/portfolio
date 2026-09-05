@@ -108,5 +108,45 @@
 }
 
 @media (max-width: 768px) {
-  .grid { grid-template-columns: 1fr; }
+  .heading {
+    margin-bottom: 36px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    padding: 24px 20px;
+    border-radius: 18px;
+    gap: 14px;
+  }
+
+  .iconCircle {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+    border-radius: 12px;
+  }
+
+  .title {
+    font-size: 1.15rem;
+  }
+
+  .desc {
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  .metric {
+    font-size: 0.74rem;
+    padding: 4px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 20px 16px;
+  }
 }

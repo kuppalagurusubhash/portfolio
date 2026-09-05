@@ -15,19 +15,20 @@ export default function Contact() {
     <section className={`section ${styles.contact}`} id="contact">
       <div className="container">
         <div className={styles.grid}>
-          {/* Left — info */}
-          <div className={styles.infoCol}>
-            <p className="section-label">Connect &amp; Collaborate</p>
+          {/* Left — info (slides in from left) */}
+          <div className={styles.infoCol} data-reveal="left">
+            <p className="section-label" data-reveal="left">Connect &amp; Collaborate</p>
             <h2 className={`section-heading ${styles.heading}`}>
-              Let&apos;s Build Something <span>Exceptional</span>
+              <span className="reveal-word-left" data-reveal="left">Let&apos;s Build Something </span>
+              <span className="reveal-word-right" data-reveal="right"><span>Exceptional</span></span>
             </h2>
-            <p className={styles.sub}>
+            <p className={styles.sub} data-reveal="up">
               Available for high-stakes software engineering leadership roles, cloud architecture consulting,
               and private partnership inquiries regarding my upcoming pre-owned venture. Reach out directly below.
             </p>
 
             <div className={styles.channels}>
-              <a href="https://wa.me/917732010001" target="_blank" rel="noopener noreferrer" className={styles.channel}>
+              <a href="https://wa.me/917732010001" target="_blank" rel="noopener noreferrer" className={styles.channel} data-reveal="left" data-delay="100">
                 <span className={styles.channelIcon}>💬</span>
                 <div>
                   <span className={styles.channelLabel}>Instant WhatsApp</span>
@@ -35,7 +36,7 @@ export default function Contact() {
                 </div>
               </a>
 
-              <a href="mailto:kgurusubhash@gmail.com" className={styles.channel}>
+              <a href="mailto:kgurusubhash@gmail.com" className={styles.channel} data-reveal="left" data-delay="150">
                 <span className={styles.channelIcon}>✉</span>
                 <div>
                   <span className={styles.channelLabel}>Direct Email</span>
@@ -43,7 +44,7 @@ export default function Contact() {
                 </div>
               </a>
 
-              <a href="tel:+917732010001" className={styles.channel}>
+              <a href="tel:+917732010001" className={styles.channel} data-reveal="left" data-delay="200">
                 <span className={styles.channelIcon}>📞</span>
                 <div>
                   <span className={styles.channelLabel}>Direct Call</span>
@@ -51,7 +52,7 @@ export default function Contact() {
                 </div>
               </a>
 
-              <div className={styles.channel}>
+              <div className={styles.channel} data-reveal="left" data-delay="250">
                 <span className={styles.channelIcon}>📍</span>
                 <div>
                   <span className={styles.channelLabel}>Current Location</span>
@@ -60,7 +61,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className={styles.socialRow}>
+            <div className={styles.socialRow} data-reveal="up">
               <a
                 href="https://linkedin.com/in/kuppalagurusubhash"
                 target="_blank"
@@ -80,8 +81,8 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right — form */}
-          <div className={styles.formCol}>
+          {/* Right — form (slides in from right) */}
+          <div className={styles.formCol} data-reveal="right">
             {sent ? (
               <div className={styles.successBox}>
                 <span className={styles.successIcon}>✓</span>

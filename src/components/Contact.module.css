@@ -232,7 +232,98 @@
 .successBox p  { font-size: 0.9rem; color: var(--text-muted); }
 
 @media (max-width: 900px) {
-  .grid { grid-template-columns: 1fr; gap: 48px; }
+  .grid { grid-template-columns: 1fr; gap: 40px; }
   .infoCol { position: static; }
   .row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    gap: 32px;
+  }
+
+  .infoCol {
+    gap: 20px;
+  }
+
+  .sub {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .channels {
+    gap: 10px;
+  }
+
+  .channel {
+    padding: 14px 16px;
+    border-radius: 12px;
+    gap: 12px;
+  }
+
+  .channelIcon {
+    font-size: 1.1rem;
+  }
+
+  .channelVal {
+    font-size: 0.85rem;
+    word-break: break-word;
+  }
+
+  .socialRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .socialBtn {
+    text-align: center;
+    padding: 10px 14px;
+    font-size: 0.78rem;
+  }
+
+  .formCol {
+    padding: 22px 18px;
+    border-radius: 18px;
+  }
+
+  .form {
+    gap: 16px;
+  }
+
+  .topicsLabel {
+    font-size: 0.72rem;
+  }
+
+  .topicButtons {
+    gap: 6px;
+  }
+
+  .topicBtn {
+    font-size: 0.72rem;
+    padding: 6px 12px;
+  }
+
+  .field input,
+  .field textarea {
+    padding: 11px 14px;
+    font-size: 0.88rem;
+  }
+
+  .submit {
+    width: 100%;
+    text-align: center;
+    padding: 14px 20px;
+    align-self: stretch;
+  }
+}
+
+@media (max-width: 360px) {
+  .formCol {
+    padding: 18px 14px;
+  }
+
+  .socialRow {
+    grid-template-columns: 1fr;
+  }
 }

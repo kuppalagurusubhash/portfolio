@@ -237,11 +237,127 @@
 }
 
 @media (max-width: 900px) {
+  .topCredentialsWrap {
+    margin-bottom: 36px;
+  }
+
+  .credentialsPill {
+    white-space: normal;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 18px;
+    padding: 12px 18px;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    gap: 8px 10px;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+  }
+
   .grid {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 40px;
   }
+
   .imageFrame {
     height: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .topCredentialsWrap {
+    margin-bottom: 28px;
+  }
+
+  .credentialsPill {
+    padding: 10px 14px;
+    font-size: 0.67rem;
+    letter-spacing: 0.8px;
+  }
+
+  .grid {
+    gap: 32px;
+  }
+
+  .imageFrame {
+    height: 340px;
+    border-radius: 18px;
+  }
+
+  .frameBadge {
+    top: 14px;
+    left: 14px;
+    font-size: 0.72rem;
+    padding: 5px 12px;
+  }
+
+  .statsGrid {
+    border-radius: 14px;
+  }
+
+  .statItem {
+    padding: 16px 14px;
+  }
+
+  .statVal {
+    font-size: 1.55rem;
+  }
+
+  .statLabel {
+    font-size: 0.68rem;
+  }
+
+  .socialStrip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .socialBtn {
+    justify-content: center;
+    padding: 9px 8px;
+    font-size: 0.74rem;
+  }
+
+  .textCol {
+    gap: 18px;
+  }
+
+  .statusBadge {
+    font-size: 0.7rem;
+    padding: 4px 12px;
+  }
+
+  .body {
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+
+  .quote {
+    font-size: 0.96rem;
+    padding-left: 16px;
+    margin: 4px 0;
+  }
+
+  .badge {
+    font-size: 0.74rem;
+    padding: 5px 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .imageFrame {
+    height: 300px;
+  }
+
+  .socialStrip {
+    grid-template-columns: 1fr;
+  }
+
+  .socialBtn {
+    padding: 10px 14px;
   }
 }
