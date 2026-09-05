@@ -626,11 +626,22 @@
 
   .spreadMainGrid {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 32px;
   }
 
   .leftCol {
     align-items: center;
+    text-align: center;
+  }
+
+  .buildWord {
+    font-size: clamp(3.2rem, 13vw, 4.4rem);
+    justify-content: center;
+  }
+
+  .techBusinessMotto {
+    font-size: 0.68rem;
+    letter-spacing: 1.8px;
     text-align: center;
   }
 
@@ -640,6 +651,7 @@
 
   .mantraItem {
     text-align: left;
+    font-size: 0.95rem;
   }
 
   .locationWrap {
@@ -647,18 +659,55 @@
   }
 
   .centerCol {
-    min-height: 480px;
+    min-height: 460px;
+    width: 100%;
+    margin: 0 auto;
   }
 
   .portraitWrapper {
-    max-width: 340px;
-    height: 480px;
+    max-width: 320px;
+    height: 460px;
+    margin: 0 auto;
+    mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
   }
 
   .rightCol {
     grid-column: span 1;
     align-items: center;
     text-align: center;
+    margin-top: 10px;
+  }
+
+  .architecturalHeadline {
+    align-items: center;
+    text-align: center;
+    font-size: clamp(1.65rem, 6.5vw, 2.2rem);
+  }
+
+  .verticalRibbonWrap {
+    margin: 18px 0;
+    justify-content: center;
+  }
+
+  .verticalWords {
+    flex-direction: row;
+    gap: 12px;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 0.68rem;
+    letter-spacing: 2px;
+  }
+
+  .ribbonDivider {
+    display: none;
+  }
+
+  .bottomMotto {
+    justify-content: center;
+    font-size: 0.76rem;
+    letter-spacing: 2px;
   }
 
   .narrativeSection {
