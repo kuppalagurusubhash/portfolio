@@ -219,12 +219,6 @@
   pointer-events: none !important;
 }
 
-.portraitImage {
-  object-fit: contain;
-  object-position: bottom center;
-  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.95));
-}
-
 .bottomBar {
   position: relative;
   z-index: 10;
@@ -297,12 +291,13 @@
   }
 
   .portraitContainer {
-    width: 520px;
-    height: 80%;
+    width: 660px;
+    max-width: 94%;
+    height: 86%;
   }
 
   .giantText {
-    font-size: clamp(2.8rem, 8vw, 6.2rem);
+    font-size: clamp(2.8rem, 8.5vw, 5.8rem);
     letter-spacing: clamp(2px, 0.7vw, 6px);
   }
 }
@@ -315,25 +310,24 @@
 
   .heroCard {
     border-radius: 24px;
-    padding: 22px 14px 18px;
-    min-height: 520px;
-    height: auto;
-    max-height: 600px;
-    aspect-ratio: 9 / 14;
+    padding: 24px 14px 18px;
+    height: clamp(510px, 74vh, 580px);
+    min-height: 500px;
     box-shadow: 0 20px 80px rgba(0, 0, 0, 0.9);
   }
 
   .topHeader {
     gap: 4px;
+    z-index: 10;
   }
 
   .brandName {
-    font-size: clamp(1.22rem, 5.2vw, 1.55rem);
+    font-size: clamp(1.15rem, 5.2vw, 1.45rem);
     letter-spacing: 0.8px;
   }
 
   .brandSubtitle {
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     line-height: 1.35;
     padding: 0 8px;
   }
@@ -341,66 +335,78 @@
   .centerStage {
     position: absolute;
     inset: 0;
+    pointer-events: none;
   }
 
-  /* Subhash cutout prominently fills the center & foreground */
+  /* Subhash cutout prominently positioned in FRONT of BUILDER */
   .portraitContainer {
-    width: 112%;
-    max-width: 440px;
-    height: 78%;
+    position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    width: 660px;
+    max-width: 180%;
+    height: 95%;
+    z-index: 4;
+    pointer-events: none !important;
+    mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
   }
 
-  /* BUILDER is positioned directly behind Subhash's shoulders & chest */
+  /* BUILDER is positioned directly behind Subhash's neck & shoulders */
   .giantText {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: clamp(2.4rem, 11vw, 3.8rem);
-    letter-spacing: clamp(1.5px, 0.8vw, 3px);
-    width: 96%;
-    max-width: 96%;
+    font-size: clamp(2.3rem, 11vw, 3.4rem);
+    width: 94%;
+    max-width: 380px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    letter-spacing: normal;
+    padding: 0 6px;
+    z-index: 2;
+    pointer-events: auto !important;
   }
 
   .builderChar {
-    padding: 0 1px;
+    padding: 0;
+    line-height: 1;
   }
 
   .charHovered {
-    transform: translateY(-8px) scale(1.07);
+    transform: translateY(-8px) scale(1.08);
   }
 
   .ambientGoldGlow {
-    width: 280px;
-    height: 280px;
-    top: 48%;
-    filter: blur(36px);
+    width: 260px;
+    height: 260px;
+    top: 50%;
+    filter: blur(34px);
   }
 
   .bottomBar {
     margin-top: auto;
+    z-index: 10;
   }
 
   .scrollDown {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     letter-spacing: 1.5px;
-    padding: 7px 18px;
+    padding: 7px 20px;
   }
 }
 
 @media (max-width: 375px) {
   .heroCard {
+    height: clamp(480px, 72vh, 530px);
     min-height: 480px;
-    padding: 18px 12px 14px;
+    padding: 18px 10px 14px;
   }
 
   .brandName {
-    font-size: 1.15rem;
+    font-size: 1.12rem;
   }
 
   .brandSubtitle {
@@ -408,12 +414,14 @@
   }
 
   .portraitContainer {
-    max-width: 380px;
-    height: 76%;
+    width: 600px;
+    max-width: 180%;
+    height: 95%;
   }
 
   .giantText {
-    font-size: 2.2rem;
-    letter-spacing: 1.2px;
+    top: 50%;
+    font-size: clamp(2.1rem, 10.5vw, 2.7rem);
+    padding: 0 4px;
   }
 }

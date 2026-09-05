@@ -69,6 +69,8 @@ export default function Hero() {
                     }`}
                     onMouseEnter={() => setHoveredIdx(i)}
                     onMouseLeave={() => setHoveredIdx(null)}
+                    onTouchStart={() => setHoveredIdx(i)}
+                    onTouchEnd={() => setTimeout(() => setHoveredIdx(null), 1200)}
                   >
                     {char}
                   </span>
