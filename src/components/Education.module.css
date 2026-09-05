@@ -109,6 +109,10 @@
 
 .honorIcon { font-size: 1.4rem; flex-shrink: 0; }
 
+.honorContent {
+  flex: 1;
+}
+
 .honorTitle {
   font-size: 0.95rem;
   font-weight: 600;
@@ -119,6 +123,29 @@
 .honorFrom {
   font-size: 0.8rem;
   color: var(--text-muted);
+}
+
+.honorLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: var(--gold-light);
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.honorLink:hover {
+  background: var(--gold);
+  color: #0b0b0e;
+  border-color: var(--gold-light);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {

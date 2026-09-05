@@ -1,4 +1,40 @@
+'use client';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import styles from './Experience.module.css';
+
+const cropNowAwards = [
+  {
+    id: 'cropnow-certificate',
+    title: 'Certificate of Achievement & Star Trophy',
+    badge: 'Official Leadership Award',
+    issuer: 'Conferred by CropNow Leadership',
+    image: '/awards/cropnow-certificate.jpeg',
+    desc: 'Awarded to Kuppala Guru Subhash in recognition of valuable contributions to CropNow and commitment towards agritech innovation.',
+    citation: '“Ideas today. Greener tomorrow. Innovation for a Healthier Planet.”',
+    year: 'Official Conclave Ceremony',
+  },
+  {
+    id: 'cropnow-plaque',
+    title: 'Rapid Execution Achievement Plaque',
+    badge: 'National Tricolor Honor',
+    issuer: 'CropNow Engineering & Operations',
+    image: '/awards/cropnow-plaque.jpeg',
+    desc: 'Honored with the official CropNow Congratulation Achievement Plaque and ceremonial tricolor shawl for decisive sprint execution and high-throughput microservices turnaround.',
+    citation: '“Technology for a Greener Tomorrow · People Ideas Impact”',
+    year: 'Corporate Recognition Ceremony',
+  },
+  {
+    id: 'cropnow-working',
+    title: 'Software Team Lead in Action',
+    badge: 'Core CSC Member',
+    issuer: 'CropNow Headquarters · Bangalore',
+    image: '/awards/cropnow-working.jpeg',
+    desc: 'Spearheading engineering velocity, sprint execution, cloud deployment pipelines, and microservices architecture directly from CropNow agritech HQ.',
+    citation: '“Smarter Farms · Healthier Tomorrows · Engineering Scalable Impact”',
+    year: 'Active Leadership Tenure',
+  },
+];
 
 const experiences = [
   {
@@ -37,6 +73,34 @@ const experiences = [
 ];
 
 export default function Experience() {
+  const [activeAward, setActiveAward] = useState(null);
+
+  useEffect(() => {
+    if (activeAward) {
+      document.body.style.overflow = 'hidden';
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') setActiveAward(null);
+        if (e.key === 'ArrowRight') {
+          setActiveAward((prev) => {
+            const idx = cropNowAwards.findIndex((a) => a.id === prev.id);
+            return cropNowAwards[(idx + 1) % cropNowAwards.length];
+          });
+        }
+        if (e.key === 'ArrowLeft') {
+          setActiveAward((prev) => {
+            const idx = cropNowAwards.findIndex((a) => a.id === prev.id);
+            return cropNowAwards[(idx - 1 + cropNowAwards.length) % cropNowAwards.length];
+          });
+        }
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.body.style.overflow = '';
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [activeAward]);
+
   return (
     <section className={`section ${styles.exp}`} id="experience">
       <div className="container">
@@ -98,6 +162,66 @@ export default function Experience() {
                   ))}
                 </div>
 
+                {/* CropNow Verified Awards & Ceremony Gallery */}
+                {ex.company === 'CropNow' && (
+                  <div className={styles.awardsShowcase} id="cropnow-awards">
+                    <div className={styles.awardsHeader}>
+                      <div className={styles.awardsHeaderLeft}>
+                        <div className={styles.trophyGlow}>🏆</div>
+                        <div>
+                          <h4 className={styles.awardsTitle}>Official Honors &amp; Award Ceremony Photos</h4>
+                          <p className={styles.awardsSubtitle}>Verified recognition conferred by CropNow leadership</p>
+                        </div>
+                      </div>
+                      <span className={styles.verifiedTag}>
+                        <span className={styles.verifiedCheck}>✓</span> CropNow Verified
+                      </span>
+                    </div>
+
+                    <div className={styles.awardsGrid}>
+                      {cropNowAwards.map((award) => (
+                        <div
+                          key={award.id}
+                          className={styles.awardCard}
+                          onClick={() => setActiveAward(award)}
+                          role="button"
+                          tabIndex={0}
+                          onKeyDown={(e) => e.key === 'Enter' && setActiveAward(award)}
+                        >
+                          <div className={styles.awardImageFrame}>
+                            <Image
+                              src={award.image}
+                              alt={award.title}
+                              fill
+                              className={styles.awardImg}
+                              sizes="(max-width: 768px) 100vw, 420px"
+                            />
+                            <div className={styles.imageOverlay}>
+                              <span className={styles.zoomPrompt}>
+                                <span>🔍</span> Tap to Expand Photo
+                              </span>
+                            </div>
+                            <span className={styles.badgePill}>{award.badge}</span>
+                          </div>
+
+                          <div className={styles.awardInfo}>
+                            <div className={styles.issuerRow}>
+                              <span className={styles.issuerName}>{award.issuer}</span>
+                              <span className={styles.awardYear}>{award.year}</span>
+                            </div>
+                            <h5 className={styles.cardTitle}>{award.title}</h5>
+                            <p className={styles.cardDesc}>{award.desc}</p>
+                            <div className={styles.citationRow}>
+                              <span className={styles.citationText}>{award.citation}</span>
+                              <span className={styles.expandLink}>View full photo ↗</span>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {ex.ctaText && (
                   <div className={styles.cardFooter}>
                     <a href={ex.ctaLink} className={styles.intimateBtn}>
@@ -112,6 +236,77 @@ export default function Experience() {
           ))}
         </div>
       </div>
+
+      {/* Fullscreen Lightbox Modal */}
+      {activeAward && (
+        <div
+          className={styles.modalBackdrop}
+          onClick={() => setActiveAward(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={activeAward.title}
+        >
+          <div
+            className={styles.modalContent}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className={styles.closeBtn}
+              onClick={() => setActiveAward(null)}
+              aria-label="Close modal"
+            >
+              ✕
+            </button>
+
+            {/* Navigation Buttons */}
+            <button
+              className={`${styles.navBtn} ${styles.prevBtn}`}
+              onClick={() => {
+                const idx = cropNowAwards.findIndex((a) => a.id === activeAward.id);
+                setActiveAward(cropNowAwards[(idx - 1 + cropNowAwards.length) % cropNowAwards.length]);
+              }}
+              aria-label="Previous photo"
+            >
+              ‹
+            </button>
+            <button
+              className={`${styles.navBtn} ${styles.nextBtn}`}
+              onClick={() => {
+                const idx = cropNowAwards.findIndex((a) => a.id === activeAward.id);
+                setActiveAward(cropNowAwards[(idx + 1) % cropNowAwards.length]);
+              }}
+              aria-label="Next photo"
+            >
+              ›
+            </button>
+
+            {/* Main Image */}
+            <div className={styles.modalImageWrap}>
+              <Image
+                src={activeAward.image}
+                alt={activeAward.title}
+                fill
+                priority
+                className={styles.modalImage}
+                sizes="90vw"
+              />
+            </div>
+
+            {/* Caption & Metadata */}
+            <div className={styles.modalCaption}>
+              <div className={styles.modalHeaderRow}>
+                <div>
+                  <span className={styles.modalBadge}>{activeAward.badge}</span>
+                  <h3 className={styles.modalTitle}>{activeAward.title}</h3>
+                  <p className={styles.modalIssuer}>{activeAward.issuer} · {activeAward.year}</p>
+                </div>
+              </div>
+              <p className={styles.modalDesc}>{activeAward.desc}</p>
+              <blockquote className={styles.modalQuote}>{activeAward.citation}</blockquote>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

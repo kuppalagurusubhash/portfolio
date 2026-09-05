@@ -37,6 +37,8 @@ const honors = [
     icon: '🏆',
     title: 'Rapid Execution & Commitment Award',
     from: 'CropNow — for exceptional engineering delivery speed',
+    link: '#cropnow-awards',
+    linkText: 'View Ceremony Photos ↗',
   },
   {
     icon: '☁️',
@@ -59,24 +61,28 @@ export default function Education() {
           <span className="reveal-word-left" data-reveal="left">Academic </span>
           <span className="reveal-word-right" data-reveal="right"><span>Foundation</span></span>
         </h2>
+        <p className="section-sub" data-reveal="up">
+          Formal engineering training and computer science education, paired with university leadership and certified cloud competencies.
+        </p>
 
         <div className={styles.grid}>
-          {education.map((e, i) => (
+          {education.map((ed, i) => (
             <div
               key={i}
-              className={`${styles.card} ${e.current ? styles.current : ''}`}
+              className={`${styles.card} ${ed.current ? styles.currentCard : ''}`}
               data-reveal={i % 2 === 0 ? 'left' : 'right'}
-              data-delay={i * 80}
             >
-              <div className={styles.topRow}>
-                <span className={styles.year}>{e.year}</span>
-                <span className={styles.cgpa}>CGPA {e.cgpa}</span>
-              </div>
-              <h3 className={styles.degree}>{e.degree}</h3>
+              <span className={styles.year}>{ed.year}</span>
+              <h3 className={styles.degree}>{ed.degree}</h3>
               <p className={styles.school}>
-                {e.school}{e.location ? `, ${e.location}` : ''}
+                {ed.school}{ed.location ? ` · ${ed.location}` : ''}
               </p>
-              {e.current && <span className={styles.currentBadge}>Currently Enrolled</span>}
+              <div className={styles.meta}>
+                <span className={styles.cgpa}>CGPA: <strong>{ed.cgpa}</strong></span>
+              </div>
+              {ed.current && (
+                <span className={styles.currentBadge}>Currently Pursuing</span>
+              )}
             </div>
           ))}
         </div>
@@ -88,10 +94,15 @@ export default function Education() {
             {honors.map((h, i) => (
               <div key={i} className={styles.honorItem} data-reveal="up" data-delay={i * 100}>
                 <span className={styles.honorIcon}>{h.icon}</span>
-                <div>
+                <div className={styles.honorContent}>
                   <p className={styles.honorTitle}>{h.title}</p>
                   <p className={styles.honorFrom}>{h.from}</p>
                 </div>
+                {h.link && (
+                  <a href={h.link} className={styles.honorLink}>
+                    <span>{h.linkText}</span>
+                  </a>
+                )}
               </div>
             ))}
           </div>
