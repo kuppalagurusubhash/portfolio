@@ -49,20 +49,6 @@ export default function About() {
 
         {/* ── Seamless Editorial Monograph Spread (No Boxed Card) ── */}
         <div className={styles.editorialSpread} data-reveal="up">
-          {/* Top Brand Bar */}
-          <div className={styles.spreadTopBar}>
-            <div className={styles.brandGroup}>
-              <span className={styles.brandLogo}>KGS.</span>
-              <span className={styles.brandSubtitle}>
-                ENGINEER &nbsp;/&nbsp; BUILDER &nbsp;/&nbsp; CREATIVE THINKER
-              </span>
-            </div>
-            <a href="#contact" className={styles.turnIdeasBtn}>
-              <span>TURN IDEAS INTO IMPACT</span>
-              <span className={styles.dashAccent}>—</span>
-            </a>
-          </div>
-
           {/* Main 3-Column Editorial Panorama */}
           <div className={styles.spreadMainGrid}>
             {/* Left Column — The BUILD Typography & Mantras */}
