@@ -15,8 +15,8 @@ export default function Contact() {
     <section className={`section ${styles.contact}`} id="contact">
       <div className="container">
         <div className={styles.grid}>
-          {/* Left — info (slides in from left) */}
-          <div className={styles.infoCol} data-reveal="left">
+          {/* Left — info */}
+          <div className={styles.infoCol}>
             <p className="section-label" data-reveal="left">Connect &amp; Collaborate</p>
             <h2 className={`section-heading ${styles.heading}`}>
               <span className="reveal-word-left" data-reveal="left">Let&apos;s Build Something </span>
@@ -81,8 +81,8 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right — form (slides in from right) */}
-          <div className={styles.formCol} data-reveal="right">
+          {/* Right — form */}
+          <div className={styles.formCol}>
             {sent ? (
               <div className={styles.successBox}>
                 <span className={styles.successIcon}>✓</span>

@@ -32,7 +32,7 @@ const pillars = [
 export default function About() {
   return (
     <section className={`section ${styles.about}`} id="about">
-      <div className="container">
+      <div className={styles.editorialContainer}>
         {/* Credentials Pill Strip */}
         <div className={styles.topCredentialsWrap} data-reveal="up">
           <div className={styles.credentialsPill}>
@@ -51,21 +51,27 @@ export default function About() {
         <div className={styles.editorialSpread} data-reveal="up">
           {/* Main 3-Column Editorial Panorama */}
           <div className={styles.spreadMainGrid}>
-            {/* Left Column — The BUILD Typography & Mantras */}
+            {/* Left Column — The BUILD Typography, Executive Bio & Mantras */}
             <div className={styles.leftCol} data-reveal="left">
-              <span className={styles.roleLine}>— FULL STACK ENGINEER &amp; TEAM LEAD</span>
+              <div className={styles.leftTopGroup}>
+                <span className={styles.roleLine}>— SOFTWARE TEAM LEAD &amp; FULL STACK ENGINEER</span>
 
-              {/* Iconic BUILD Typography: B & U are hollow outline, I, L, D are radiant gold */}
-              <div className={styles.buildWord} aria-label="BUILD">
-                <span className={styles.outlineChar}>B</span>
-                <span className={styles.outlineChar}>U</span>
-                <span className={styles.goldChar}>I</span>
-                <span className={styles.goldChar}>L</span>
-                <span className={styles.goldChar}>D</span>
-              </div>
+                {/* Iconic BUILD Typography: B & U are hollow outline, I, L, D are radiant gold */}
+                <div className={styles.buildWord} aria-label="BUILD">
+                  <span className={styles.outlineChar}>B</span>
+                  <span className={styles.outlineChar}>U</span>
+                  <span className={styles.goldChar}>I</span>
+                  <span className={styles.goldChar}>L</span>
+                  <span className={styles.goldChar}>D</span>
+                </div>
 
-              <div className={styles.techBusinessMotto}>
-                TECHNOLOGY &nbsp;•&nbsp; BUSINESS &nbsp;•&nbsp; A BETTER TOMORROW
+                <div className={styles.techBusinessMotto}>
+                  TECHNOLOGY &nbsp;•&nbsp; BUSINESS &nbsp;•&nbsp; A BETTER TOMORROW
+                </div>
+
+                <p className={styles.heroLeadNarrative}>
+                  Architecting resilient microservices &amp; production cloud pipelines as a Core CSC Lead at <strong>CropNow</strong>, while building automated platforms for secondary commercial assets.
+                </p>
               </div>
 
               {/* 3 Core Mantras with Vertical Golden Bar */}
@@ -75,6 +81,18 @@ export default function About() {
                   <p className={styles.mantraItem}>Engineering solutions.</p>
                   <p className={styles.mantraItem}>Scaling ideas.</p>
                   <p className={styles.mantraItem}>Creating meaningful impact.</p>
+                </div>
+              </div>
+
+              {/* Key Highlights / Badges */}
+              <div className={styles.heroMetricsStrip}>
+                <div className={styles.heroMetricBadge}>
+                  <span className={styles.metricVal}>40%</span>
+                  <span className={styles.metricLbl}>Velocity Boost</span>
+                </div>
+                <div className={styles.heroMetricBadge}>
+                  <span className={styles.metricVal}>99.9%</span>
+                  <span className={styles.metricLbl}>Cloud Uptime</span>
                 </div>
               </div>
 
@@ -94,12 +112,12 @@ export default function About() {
               <div className={styles.portraitAura} aria-hidden="true" />
               <div className={styles.portraitWrapper}>
                 <Image
-                  src="/subhash-suit-pristine.png"
+                  src="/subhash-hero-center.png"
                   alt="Kuppala Guru Subhash"
                   fill
                   priority
                   className={styles.portraitImage}
-                  sizes="(max-width: 768px) 90vw, 480px"
+                  sizes="(max-width: 768px) 90vw, (max-width: 1200px) 55vw, 600px"
                 />
               </div>
             </div>
@@ -135,7 +153,9 @@ export default function About() {
             </div>
           </div>
         </div>
+      </div>
 
+      <div className="container">
         {/* ── Executive Information & Career Narrative Section ── */}
         <div className={styles.narrativeSection} data-reveal="up">
           <div className={styles.narrativeHeader}>
